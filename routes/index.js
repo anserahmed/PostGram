@@ -36,9 +36,9 @@ router.get("/profile", isLoggedIn, async function (req, res) {
   }
 });
 
-
-router.get("/search", isLoggedIn,function (req, res) {
-  res.render("search", { footer: true });
+router.get("/search", isLoggedIn, async function (req, res) {
+  const user = await userModel.findOne({ username: req.session.passport.user }).populate("posts");
+  res.render("search", { footer: true , user});
 });
 
 router.get("/like/post/:id", isLoggedIn, async function (req, res) {
@@ -63,6 +63,12 @@ router.get("/edit", isLoggedIn, async function (req, res) {
 
 router.get("/upload", isLoggedIn, function (req, res) {
   res.render("upload", { footer: true });
+});
+
+router.get("/username/:username", isLoggedIn, async function (req, res) {
+  const regex = new RegExp(`^${req.params.username}`, 'i');
+  const users = await userModel.find({username: regex})
+  res.json(users);
 });
 
 router.post("/register", function (req, res, next) {
