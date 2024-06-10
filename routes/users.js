@@ -1,7 +1,17 @@
 const mongoose = require('mongoose');
 const plm = require("passport-local-mongoose");
+require('dotenv').config();
+const url=process.env.DB_URL;
 
-mongoose.connect("mongodb://127.0.0.1:27017/postgram");
+
+mongoose.connect(url, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+mongoose.connection.on('connected', () => {
+  console.log('Connected..');
+});
 
 
 const userSchema = new mongoose.Schema({
