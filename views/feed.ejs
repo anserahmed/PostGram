@@ -2,23 +2,26 @@
   <div class="w-full min-h-screen bg-black text-white py-2">
     <div class=" ml-1 px-0 zinc-900 scroll-px-0 flex justify-between">
       <img class="w-1/4" src="/images/logo.png" alt="">
+
     </div>
+
     <hr class=" opacity-30 my-1">
+
     <div class=" posts mb-14">
       <% posts.reverse().forEach(function(elem){ %>
 
         <div class="post py-4 w-full min-h-[50vh]">
           <div class="title px-3 flex items-center gap-2">
             <div class="w-[8vw] h-[8vw] bg-sky-100 rounded-full overflow-hidden">
-              <img class="w-full h-fullfd bg-white object-cover" src="/images/uploads/<%=elem.user.profileImage %>"
+              <img class="w-full min-h-full h-full bg-white object-cover" src="/images/uploads/<%=elem.user.profileImage %>"
                 alt="gdfkngb fhgkjujjghghfd">
             </div>
             <h4 class="text-sm">
               <%=elem.user.name %>
             </h4>
           </div>
-          <div class="w-full h-96 mt-4 bg-sky-100 overflow-hidden">
-            <img class="h-full w-full object-cover" src="/images/uploads/<%= elem.picture%>" alt="">
+          <div class="w-full h-full mt-4 bg-sky-100 overflow-hidden">
+            <img class="h-full w-full object-cover" src="/images/uploads/<%= elem.picture%>" alt="DP">
           </div>
           <div class="options w-full px-4 flex justify-between items-center text-[1.4rem]">
             <div class="flex gap-3 mt-2">
@@ -37,16 +40,15 @@
           </h3>
           <h2 class="text-white italic font-light text-sm mt-2"><span
               class="font-bold not-italic text-red-400 pl-3  pr-2">
-              <%= elem.user.username %>
+              <%= elem.user.username %> :
             </span>
             <%= elem.caption %>
           </h2>
         </div>
         <% }) %>
           <hr class=" text-red-400 opacity-30 my-1">
-           <p class="text-xs text-white opacity-30 italic items-center px-1 text-center "> &copy; 2024 , Anser Ahmed. All
-      rights reserved
-    </p>
+          <p class="text-xs text-white opacity-20 italic items-center px-1 text-center "> &copy; 2024 , Anser Ahmed. All
+            rights reserved
+          </p>
     </div>
-  </div>
-  <% include ./partials/footer.ejs %>
+    <% include ./partials/footer.ejs %>
