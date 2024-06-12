@@ -1,43 +1,111 @@
 <% include ./partials/header.ejs %>
-  <div class="w-full min-h-screen bg-zinc-900 text-white py-5">
-      <div class="nav flex-row items-center">
-        <h3 class="text-red-400 text-lg text-center mb-1 justify-center"><%= user.username %>
-        <a href="/logout"><i class="text-white ri-arrow-down-s-line"></i></a></h3>
-        <div class="icons flex  items-center justify-center ">
-          
+  <div class="w-full min-h-screen h-full bg-black text-white py-5">
+    <div class="nav flex-row items-center">
+      <h3 class="text-red-400 text-lg text-center mb-1 mt-5 justify-center">
+        <%= user.username %>
+          <a href="/logout"><i class="text-white ri-logout-box-r-line"></i></i></a>
+      </h3>
+      <div class="icons flex  items-center justify-center ">
+
+      </div>
+    </div>
+    <div class="flex flex-col gap-5 justify-between items-center mt-3">
+      <div class="w-[30vw] h-[30vw]  rounded-full bg-sky-100 overflow-hidden">
+        <img class="w-full h-full bg-white object-cover" src="/images/uploads/<%= user.profileImage %>"
+          alt="sbgjwegeriotgjelorerrbtht8y59gjk">
+      </div>
+
+      <div class="stats flex flex-col gap- items-center justify-between">
+
+        <div class="flex flex-col gap-1 items-center justify-center">
+          <h3 class="text-xl mb-1">
+            <%= user.name%>
+          </h3>
+          <p class="text-xs italic tracking-tight opacity-60">
+            <%= user.bio%>
+          </p>
+        </div>
+
+        <div class="px-6 mt-5">
+          <a class="px-4 py-2 bg-gray-800 text-sm rounded-md" href="/edit">Edit Profile</a>
         </div>
       </div>
-      <div class="flex flex-col gap-5 justify-between items-center mt-3">
-        <div class="w-[30vw] h-[30vw]  rounded-full bg-sky-100 overflow-hidden">
-          <img class="w-full h-full bg-white object-cover" src="/images/uploads/<%= user.profileImage %>" alt="sbgjwegeriotgjelorerrbtht8y59gjk"></div>
-        
-        <div class="stats flex flex-col gap- items-center justify-between">
-          
-          <div class="flex flex-col gap-1 items-center justify-center">
-            <h3 class="text-lg mb-1"><%= user.name%></h3>
-            <p class="text-xs tracking-tight opacity-50"><%= user.bio%></p>
-          </div>
+    </div>
 
-          <div class="px-6 mt-5">
-            <a class="px-4 py-2 bg-zinc-800 text-sm rounded-md" href="/edit">Edit Profile</a>
-          </div>
+    <div class="flex place-content-center gap-1 px-6  mt-10">
+      <h3>
+        <%= user.posts.length %>
+      </h3>
+      <h4 class="text-red-400">Posts</h4>
+    </div>
+
+
+
+    <div class="post w-full flex gap-1 place-content-center p-2 mt-3 flex-wrap">
+      <% user.posts.forEach(function(post){ %>
+        <div class="posts w-[32.5%] h-32 bg-sky-100 rounded-lg overflow-hidden">
+          <img class="h-full w-full object-cover" src="/images/uploads/<%= post.picture %>" alt="">
         </div>
-      </div>
-
-      <div class="flex place-content-center gap-1 px-6 mt-5">
-        <h3 > <%= user.posts.length %> </h3>
-        <h4 class="text-red-400" >Posts</h4>
-      </div>
-
-      
-      
-      <div class="post w-full flex gap-1 place-content-center p-2 mt-3 flex-wrap">
-        <% user.posts.forEach(function(post){  %>
-          <div class="posts w-[32.5%] h-32 bg-sky-100 rounded-lg overflow-hidden">
-            <img class="h-full w-full object-cover" src="/images/uploads/<%= post.picture %>" alt="">
-          </div>
         <% }) %>
-        
-      </div>
+    </div>
+    <!-- <p class="text-sm opacity-20 italic px-1 py-5 text-center items-end"> &copy; Anser Ahmed. All rights reserved</p> -->
+
   </div>
-<% include ./partials/footer.ejs %>
+
+
+  <% include ./partials/footer.ejs %><% include ./partials/header.ejs %>
+  <div class="w-full min-h-screen h-full bg-black text-white py-5">
+    <div class="nav flex-row items-center">
+      <h3 class="text-red-400 text-lg text-center mb-1 mt-5 justify-center">
+        <%= user.username %>
+          <a href="/logout"><i class="text-white ri-logout-box-r-line"></i></i></a>
+      </h3>
+      <div class="icons flex  items-center justify-center ">
+
+      </div>
+    </div>
+    <div class="flex flex-col gap-5 justify-between items-center mt-3">
+      <div class="w-[30vw] h-[30vw]  rounded-full bg-sky-100 overflow-hidden">
+        <img class="w-full h-full bg-white object-cover" src="/images/uploads/<%= user.profileImage %>"
+          alt="sbgjwegeriotgjelorerrbtht8y59gjk">
+      </div>
+
+      <div class="stats flex flex-col gap- items-center justify-between">
+
+        <div class="flex flex-col gap-1 items-center justify-center">
+          <h3 class="text-xl mb-1">
+            <%= user.name%>
+          </h3>
+          <p class="text-xs italic tracking-tight opacity-60">
+            <%= user.bio%>
+          </p>
+        </div>
+
+        <div class="px-6 mt-5">
+          <a class="px-4 py-2 bg-gray-800 text-sm rounded-md" href="/edit">Edit Profile</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex place-content-center gap-1 px-6  mt-10">
+      <h3>
+        <%= user.posts.length %>
+      </h3>
+      <h4 class="text-red-400">Posts</h4>
+    </div>
+
+
+
+    <div class="post w-full flex gap-1 place-content-center p-2 mt-3 flex-wrap">
+      <% user.posts.forEach(function(post){ %>
+        <div class="posts w-[32.5%] h-32 bg-sky-100 rounded-lg overflow-hidden">
+          <img class="h-full w-full object-cover" src="/images/uploads/<%= post.picture %>" alt="">
+        </div>
+        <% }) %>
+    </div>
+    <!-- <p class="text-sm opacity-20 italic px-1 py-5 text-center items-end"> &copy; Anser Ahmed. All rights reserved</p> -->
+
+  </div>
+
+
+  <% include ./partials/footer.ejs %>
