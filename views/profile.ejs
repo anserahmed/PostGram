@@ -1,7 +1,7 @@
 <% include ./partials/header.ejs %>
-
+<div class="max-w-[500px] mx-auto">
   <div class="w-full min-h-screen h-full bg-black text-white py-5">
-    <div class="nav max-w-[500px] mx-auto flex-row items-center">
+    <div class="nav flex-row items-center">
       <h3 class="text-red-400 text-lg text-center mb-1 mt-5 justify-center">
         <%= user.username %>
           <a href="/logout"><i class="text-white ri-logout-box-r-line"></i></i></a>
@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div class="flex max-w-[500px] mx-auto flex-col gap-5 justify-between items-center mt-3">
+    <div class="flex  flex-col gap-5 justify-between items-center mt-3">
       <div class="w-[30vw] h-[30vw]  rounded-full bg-sky-100 overflow-hidden">
         <img class="w-full h-full bg-white object-cover" src="/images/uploads/<%= user.profileImage %>"
           alt="sbgjwegeriotgjelorerrbtht8y59gjk">
@@ -19,7 +19,7 @@
 
       <div class="stats flex flex-col gap- items-center justify-between">
 
-        <div class=" max-w-[500px] mx-auto flex flex-col gap-1 items-center justify-center">
+        <div class="flex flex-col gap-1 items-center justify-center">
           <h3 class="text-xl mb-1">
             <%= user.name%>
           </h3>
@@ -28,13 +28,13 @@
           </p>
         </div>
 
-        <div class=" max-w-[500px] mx-auto px-6 mt-5">
+        <div class="px-6 mt-5">
           <a class="px-4 py-2 bg-zinc-800 text-sm rounded-md" href="/edit">Edit Profile</a>
         </div>
       </div>
     </div>
 
-    <div class="flex place-content-center gap-1 px-6  mt-10">
+    <div class="flex place-content-center gap-1 px-6 mt-10">
       <h3>
         <%= user.posts.length %>
       </h3>
@@ -53,6 +53,7 @@
     <!-- <p class="text-sm opacity-20 italic px-1 py-5 text-center items-end"> &copy; Anser Ahmed. All rights reserved</p> -->
 
   </div>
+</div>
 
 
   <% include ./partials/footer.ejs %>
