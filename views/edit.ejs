@@ -1,16 +1,20 @@
 <% include ./partials/header.ejs %>
 <div class="bg-black">
-<div class="w-full min-h-screen max-w-[500px] mx-auto bg-black">
+<div class="w-full min-h-screen max-w-[400px] mx-auto bg-black">
   <div class=" bg-black text-white pt-5">
 
-    <div class="flex max-w-[500px] mx-auto justify-between items-center px-4">
+    <div class="flex max-w-[400px] mx-auto justify-between items-center px-4">
       <a class="text-sm text-red-400" href="/profile"><i class="ri-arrow-left-s-line"></i> Profile</a>
       <h2 class="leading-none text-sm">Edit Profile</h2>
       <a class=" text-red-400" href="/feed"><i class="text-red-400 ri-home-line"></i> Home</a>
     </div>
 
     <div class="flex flex-col items-center gap-2 mt-20">
-      <div class="image w-20 h-20 bg-red-100 rounded-full"></div>
+      <div class="image w-20 h-20 bg-red-100 rounded-full">    
+      <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+          <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+      </div>
+      </div>
       <button id="editbtn" class="text-red-400 capitalize">Edit picture</button>
     </div>
 
