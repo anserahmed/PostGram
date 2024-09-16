@@ -1,4 +1,6 @@
-<% include ./partials/header.ejs %>
+
+<%- include('partials/header') %>
+
 <div class="bg-black">
   <div class="max-w-[400px] mx-auto w-full min-h-screen bg-black text-white py-5">
     <div class="mx-auto justify-between items-center px-4">
@@ -26,4 +28,5 @@
         document.querySelector("#uploadform input").click();
     });
   </script>
-<% include ./partials/footer.ejs %>
+  <%- include('partials/footer') %>
+
