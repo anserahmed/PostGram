@@ -42,17 +42,14 @@
       <h4 class="text-red-400">Posts</h4>
     </div>
 
-
-
     <div class="max-w-[500px] mx-auto post w-full flex gap-1 place-content-center p-2 mt-3 flex-wrap">
-      <% user.posts.forEach(function(post){ %>
+      <% user.postsposts.reverse().forEach(function(post){ %>
         <div class="posts w-[32.5%] h-32 bg-sky-100 rounded-lg overflow-hidden">
           <img class="h-full w-full object-cover" src="/images/uploads/<%- post.picture %>" alt="">
         </div>
         <% }) %>
     </div>
     <!-- <p class="text-sm opacity-20 italic px-1 py-5 text-center items-end"> &copy; Postgram. All rights reserved</p> -->
-
   </div>
 </div>
 
