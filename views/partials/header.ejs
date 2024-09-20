@@ -4,10 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PostGram</title>
+
+    <link rel="icon" href="/images/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <link
       href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css"
@@ -15,7 +20,23 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
+  <body class="bg-black">
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script>
+      async function deletePost(postId) {
+        try {
+          const response = await fetch(`/post/delete/${postId}`, {
+            method: "DELETE",
+          });
+          const result = await response.json();
+          if (result.message) {
+            alert(result.message);
+            window.location.reload();
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+    </script>
   </body>
 </html>

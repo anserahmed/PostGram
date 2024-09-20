@@ -122,7 +122,7 @@ router.post("/register", function (req, res, next) {
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/profile",
+    successRedirect: "/feed",
     failureRedirect: "/login",
     failureFlash: true,
   }),
@@ -150,6 +150,41 @@ router.post("/update", upload.single("image"), async function (req, res) {
   }
   await user.save();
   res.redirect("/profile");
+});
+
+
+// Delete a post by ID
+router.delete("/post/delete/:id", isLoggedIn, async function (req, res) {
+  try {
+    const postId = req.params.id;
+    const user = await userModel.findOne({
+      username: req.session.passport.user,
+    });
+
+    // Find the post and check if it belongs to the logged-in user
+    const post = await postModel.findOne({ _id: postId, user: user._id });
+
+    if (!post) {
+      return res
+        .status(404)
+        .json({
+          message:
+            "Post not found or you are not authorized to delete this post.",
+        });
+    }
+
+    // Delete the post from the database
+    await postModel.findByIdAndDelete(postId);
+
+    // Remove the post from the user's posts array
+    user.posts = user.posts.filter((p) => p.toString() !== postId);
+    await user.save();
+
+    res.json({ message: "Post deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error deleting post", error });
+  }
 });
 
 router.post(

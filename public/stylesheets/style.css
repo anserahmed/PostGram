@@ -1,7 +1,55 @@
-.story::-webkit-scrollbar{
+.story::-webkit-scrollbar {
   display: none;
 }
 
 a:focus {
   outline: none !important;
 }
+/* From Uiverse.io by IWhat1 */
+.container {
+  width: 100%;
+  height: 100%;
+  perspective: 900px;
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+  /* background-color: aliceblue; */
+  position: relative;
+  transition: transform 1000ms;
+  transform-style: preserve-3d;
+  border-radius: 2rem;
+}
+
+.container:hover > .card {
+  cursor: pointer;
+  transform:  rotateX(180deg);
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  /* border-radius: 2rem; */
+  position: absolute;
+  /* box-shadow: 0 0 10px 2px rgba(50, 50, 50, 2.5); */
+  backface-visibility: hidden;
+  color: aliceblue;
+  background: linear-gradient(-180deg, #282828, #000000);
+}
+
+.front,
+.back {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.back {
+  transform: rotateY(180deg) rotateZ(180deg);
+}
+
+
