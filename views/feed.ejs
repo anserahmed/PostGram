@@ -78,9 +78,9 @@
           <span><%= elem.caption %></span>
         </h2>
 
-        <h3 class="px-3 text-xs font-mono text-gray-400">
+        <h3 class="px-3 text-xs italic text-gray-400">
           <%= elem.date.getHours() %>:<%= elem.date.getMinutes() %> <%=
-          elem.date.getDate() %>/<%= elem.date.getUTCMonth() %>/<%=
+          elem.date.getDate() %>/<%= elem.date.getUTCMonth()+1 %>/<%=
           elem.date.getFullYear() %>
         </h3>
       </div>
